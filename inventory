@@ -1,5 +1,5 @@
-auth
-ci
-gitlab
-nagios
-support
+auth.forgeservicelab.fi
+ci.forgeservicelab.fi
+git.forgeservicelab.fi
+nagios.forgeservicelab.fi
+support.forgeservicelab.fi
