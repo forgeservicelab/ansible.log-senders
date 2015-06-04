@@ -1,0 +1,5 @@
+---
+logtail:
+  offset_file: '~/.logtail4avro.offset'
+  source_file: '/var/log/apache2/ssl_access.log'
+  output_file: '/tmp/apache2avro.log'

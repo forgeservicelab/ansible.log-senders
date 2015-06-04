@@ -1,0 +1,4 @@
+# Roles
+- src: git+ssh://gitlab@git.forgeservicelab.fi:10022/ansible-roles/avro-sender.git
+  path: roles/
+  name: avro-sender

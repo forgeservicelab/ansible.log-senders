@@ -1,0 +1,6 @@
+---
+flume:
+  spool_dir: '/var/spool/flume'
+  avro_file: 'webserver_log.avro'
+  avro_host: '193.166.25.11'
+  avro_port: 4141
