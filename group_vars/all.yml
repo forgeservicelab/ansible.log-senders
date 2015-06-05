@@ -1,6 +1,24 @@
 ---
-flume:
-  spool_dir: '/var/spool/flume'
-  avro_file: 'webserver_log.avro'
-  avro_host: '193.166.25.11'
-  avro_port: 4141
+avro_file: 'webserver_log.avro'
+
+flume_agent:
+  name: agent
+  channels:
+    - name: memoryChannel
+      type: memory
+      capacity: 100
+  sources:
+    - name: spoolDirSource
+      type: spooldir
+      spoolDir: "/var/spool/flume"
+      deletePolicy: immediate
+      batchSize: 1
+      deserializer: AVRO
+      channels: memoryChannel
+  sinks:
+    - name: avroSink
+      type: avro
+      hostname: '193.166.25.11'
+      port: 4141
+      batchSize: 10
+      channel: memoryChannel
