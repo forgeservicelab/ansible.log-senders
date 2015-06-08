@@ -1,6 +1,4 @@
 ---
-avro_file: 'webserver_log.avro'
-
 flume_agent:
   name: agent
   channels:
@@ -8,13 +6,19 @@ flume_agent:
       type: memory
       capacity: 100
   sources:
-    - name: spoolDirSource
-      type: spooldir
-      spoolDir: "/var/spool/flume"
-      deletePolicy: immediate
+    - name: execSource
+      type: exec
+      command: "tail -F {{ log_file }}"
       batchSize: 1
-      deserializer: AVRO
       channels: memoryChannel
+      interceptors: itime ihost itype
+      interceptors.itime.type: timestamp
+      interceptors.ihost.type: host
+      interceptors.ihost.useIP: false
+      interceptors.ihost.hostHeader: host
+      interceptors.itype.type: static
+      interceptors.itype.key: log_type
+      interceptors.itype.value: apache_access_combined
   sinks:
     - name: avroSink
       type: avro

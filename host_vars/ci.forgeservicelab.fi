@@ -1,5 +1,2 @@
 ---
-logtail:
-  offset_file: '~/.logtail4avro.offset'
-  source_file: '/var/log/jenkins/nginx-access.log'
-  output_file: '/tmp/nginx2avro.log'
+log_file: '/var/log/jenkins/nginx-access.log'
