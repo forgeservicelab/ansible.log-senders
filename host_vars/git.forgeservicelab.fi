@@ -1,2 +1,3 @@
 ---
 log_file: '/var/log/nginx/gitlab_access.log'
+log_reader_group: adm
