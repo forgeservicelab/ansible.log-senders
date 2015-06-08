@@ -1,0 +1,12 @@
+---
+- hosts: all
+  sudo: true
+  roles:
+    - role: avro-sender
+
+  post_tasks:
+    - name: Add flume user to log read group
+      user:
+        append: yes
+        groups: "{{ log_reader_group }}"
+        name: flume
