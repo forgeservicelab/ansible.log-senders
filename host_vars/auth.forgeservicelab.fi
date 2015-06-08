@@ -1,2 +1,3 @@
 ---
 log_file: '/var/log/httpd/ssl_access_log'
+log_reader_group: root
